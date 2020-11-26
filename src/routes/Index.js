@@ -8,7 +8,7 @@ router.get ('/', async (req, res)=>{
     res.json(notes);
     //res.render('Index', {notes});
 });
-
+/*
 router.post('/', (req, res) => {
     const{title, description, user} = req.body;
      const newNote = new Note({title, description, user});
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
     console.log('Got body:', req.body);
     res.sendStatus(200);
 });
-
+*/
 router.get ('/about', (req, res)=>{
     //res.sendFile(path.join(__dirname, 'views/Index.html'));
     res.render('about' );
