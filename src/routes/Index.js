@@ -16,8 +16,13 @@ router.get ('/test_get', async (req, res)=>{
     //res.render('Index', {notes});
 });
 
-router.post('/hola', function (req, res) {
-  res.send('[POST]Saludos desde express');
+router.post('/hola', async function (req, res) {
+  
+     const{title, description, user} = req.body;
+     const newNote = new Note({title, description, user});
+     res.send(title);
+     await newNote.save();
+    res.send('[POST]Guardado');
 });
 
 
