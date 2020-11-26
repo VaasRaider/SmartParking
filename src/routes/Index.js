@@ -17,7 +17,7 @@ router.get ('/test_get', async (req, res)=>{
 });
 
 
-router.post('/test_post', (req, res) => {
+router.post('/test_post', async (req, res) => {
     const{title, description, user} = req.body;
      const newNote = new Note({title, description, user});
      await newNote.save();
