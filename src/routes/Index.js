@@ -22,7 +22,7 @@ router.post('/test_post', async (req, res) => {
      const newNote = new Note({title, description, user});
      await newNote.save();
      res.status(204);
-}
+});
 
 router.get ('/about', (req, res)=>{
     //res.sendFile(path.join(__dirname, 'views/Index.html'));
