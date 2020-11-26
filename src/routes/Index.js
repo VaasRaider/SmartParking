@@ -16,6 +16,10 @@ router.get ('/test_get', async (req, res)=>{
     //res.render('Index', {notes});
 });
 
+router.post('/hola', function (req, res) {
+  res.send('[POST]Saludos desde express');
+});
+
 
 router.post('/test_post', async (req, res) => {
     const{title, description, user} = req.body;
