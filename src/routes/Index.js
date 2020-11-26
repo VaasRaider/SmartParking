@@ -28,15 +28,16 @@ router.post( '/test_post', async function ( req, res ) {
 
 router.put ( '/test_put', async ( req, res ) => {
     
-    const { title, description, user } = req.body;
-    await Note.findAndUpdate ( title, { title, description, user } );
+    const { id, title, description, user } = req.body;
+    await Note.findByIdAndUpdate ( id, { title, description, user } );
     res.send ( '[POST] Actualizado' );
     
 } );
 
 router.delete ( '/test_delete', async ( req, res ) => {
     
-    await Note.findAndDelete ( req.params.title ).lean ( );
+    const { id, title, description, user } = req.body;
+    await Note.findAndDelete ( id ).lean ( );
     req.flash ( 'success_msg', 'Eliminado correctamente' );
     res.send ( '[POST] Eliminado' );
     
