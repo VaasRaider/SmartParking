@@ -10,8 +10,8 @@ router.get ('/', async (req, res)=>{
 });
 
 router.post('/', (req, res) => {
-    const{title, description} = req.body;
-     const newNote = new Note({title, description});
+    const{title, description, user} = req.body;
+     const newNote = new Note({title, description, user});
      await newNote.save();
     console.log('Got body:', req.body);
     res.sendStatus(200);
