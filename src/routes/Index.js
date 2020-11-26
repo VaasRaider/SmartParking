@@ -5,9 +5,17 @@ const Note = require('../models/Note');
 router.get ('/', async (req, res)=>{
     //res.sendFile(path.join(__dirname, 'views/Index.html'));
     const notes = await Note.find().lean();
+    //res.json(notes);
+    res.render('Index', {notes});
+});
+
+router.get ('/test', async (req, res)=>{
+    //res.sendFile(path.join(__dirname, 'views/Index.html'));
+    const notes = await Note.find().lean();
     res.json(notes);
     //res.render('Index', {notes});
 });
+
 /*
 router.post('/', (req, res) => {
     const{title, description, user} = req.body;
