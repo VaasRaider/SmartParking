@@ -9,7 +9,7 @@ router.get ('/', async (req, res)=>{
     //res.render('Index', {notes});
 });
 
-router.post('/post-test', (req, res) => {
+router.post('/', (req, res) => {
     const{title, description} = req.body;
      const newNote = new Note({title, description});
      await newNote.save();
