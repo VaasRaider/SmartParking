@@ -9,7 +9,7 @@ router.get ('/', async (req, res)=>{
     //res.render('Index', {notes});
 });
 
-app.post('/', (req, res) => {
+router.post('/post-test', (req, res) => {
     console.log('Got body:', req.body);
     res.sendStatus(200);
 });
