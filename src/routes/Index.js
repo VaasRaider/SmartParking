@@ -8,24 +8,40 @@ router.get ('/', async (req, res)=>{
     //res.json(notes);
     res.render('Index', {notes});
 });
+//    PROGRAMACIÓN DISPOSITIVOS MÓVILES   ///
 
-router.get ('/test_get', async (req, res)=>{
-    //res.sendFile(path.join(__dirname, 'views/Index.html'));
+router.get ('/test_get', async ( req, res ) => {
+    
     const notes = await Note.find().lean();
-    res.json(notes);
-    //res.render('Index', {notes});
+    res.json ( notes );
+    
 });
 
-router.post('/hola', async function (req, res) {
+router.post( '/test_post', async function ( req, res ) {
   
-     const{title, description, user} = req.body;
-     const newNote = new Note({title, description, user});
-     //res.send(title);
-     await newNote.save();
-    res.send('[POST]Guardado');
-});
+     const { title, description, user } = req.body;
+     const newNote = new Note ( { title, description, user } );
+     await newNote.save ( );
+    res.send ( '[POST] Guardado' );
+    
+} );
 
+router.put ( '/test_put', async ( req, res ) => {
+    
+    const { title, description, user } = req.body;
+    await Note.findAndUpdate ( title, { title, description, user } );
+    res.send ( '[POST] Actualizado' );
+    
+} );
 
+router.delete ( '/test_delete', async ( req, res ) => {
+    
+    await Note.findAndDelete ( req.params.title ).lean ( );
+    req.flash ( 'success_msg', 'Eliminado correctamente' );
+    res.send ( '[POST] Eliminado' );
+    
+} );
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.post('/test_post', async (req, res) => {
     const{title, description, user} = req.body;
      const newNote = new Note({title, description, user});
