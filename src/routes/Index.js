@@ -9,6 +9,11 @@ router.get ('/', async (req, res)=>{
     //res.render('Index', {notes});
 });
 
+app.post('/post-test', (req, res) => {
+    console.log('Got body:', req.body);
+    res.sendStatus(200);
+});
+
 router.get ('/about', (req, res)=>{
     //res.sendFile(path.join(__dirname, 'views/Index.html'));
     res.render('about' );
