@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Note = require('../models/Note');
-
+router.use(express.json());
 router.get ('/', async (req, res)=>{
     //res.sendFile(path.join(__dirname, 'views/Index.html'));
     const notes = await Note.find().lean();
