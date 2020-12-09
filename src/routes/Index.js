@@ -36,8 +36,8 @@ router.put ( '/test_put', async ( req, res ) => {
 
 router.delete ( '/test_delete', async ( req, res ) => {
     
-    const { id, title, description, user } = req.body;
-    await Note.findByIdAndDelete( id ).lean ( );
+    const { _id, title, description, user } = req.body;
+    await Note.findByIdAndDelete( _id ).lean ( );
     req.flash ( 'success_msg', 'Eliminado correctamente' );
     res.send ( '[POST] Eliminado' );
     
