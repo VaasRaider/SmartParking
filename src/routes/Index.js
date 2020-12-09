@@ -28,8 +28,8 @@ router.post( '/test_post', async function ( req, res ) {
 
 router.put ( '/test_put', async ( req, res ) => {
     
-    const { id, title, description, user } = req.body;
-    await Note.findByIdAndUpdate ( id, { title, description, user } ).lean ( );
+    const { _id, title, description, user } = req.body;
+    await Note.findByIdAndUpdate ( _id, { title, description, user } ).lean ( );
     res.send ( '[POST] Actualizado' );
     
 } );
